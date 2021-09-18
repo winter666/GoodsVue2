@@ -1,5 +1,22 @@
 <div id="main">
   <div class="container">
-    Main page
+    <h3>Товары</h3>
+    <div class="acordeon-wrap">
+        <div class="acordeon-item" v-for=" group in goodGroups">
+            <div class="acordeon-head">
+                <span class="acordeon-title">{{ group.name }}</span>
+            </div>
+            <div class="acordeon-body">
+                <div class="goods">
+                    <div v-for="good in group.goods">
+                        <ul>
+                            <li>{{ good.name }} ({{ good.total }})</li>
+                            <li>{{ priceFormat(good.price) }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
 </div>
