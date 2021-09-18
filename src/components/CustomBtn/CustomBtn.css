@@ -1,0 +1,46 @@
+button.custom-btn {
+  padding: 10px;
+  border: 1px solid #808080;
+  border-radius: 2pt;
+  background-color: #808080;
+  color: #fff;
+  cursor: pointer;
+}
+
+button.custom-btn:active {
+  box-shadow: #808080 0px 0px 5px;
+  transition: .1s;
+}
+
+button.custom-btn.btn-green {
+  border-color: rgb(0, 102, 0);
+  background-color: rgb(0, 119, 0);
+}
+
+button.custom-btn.btn-green:active {
+  box-shadow: #808080 0px 0px 5px;
+}
+
+button.custom-btn.btn-red {
+  border-color: #8b0000;
+  background-color: #ff0000;
+}
+
+button.custom-btn.btn-red:active {
+  box-shadow: #ff0000 0px 0px 5px;
+}
+
+button.custom-btn.btn-primary {
+  border-color: #0d0080;
+  background-color: #090088;
+}
+
+button.custom-btn.btn-primary:active {
+  box-shadow: #0d0080 0px 0px 5px;
+}
+
+
+button.custom-btn.disabled {
+  cursor: not-allowed !important;
+  opacity: 0.5;
+}

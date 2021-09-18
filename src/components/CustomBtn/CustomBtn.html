@@ -1,0 +1,7 @@
+<button :type="type"
+        class="custom-btn"
+        :class="{ 'btn-green': isGreen, 'btn-red': isRed, 'btn-primary': isPrimary, 'disabled': isDisabled }"
+        :disabled="isDisabled"
+        @click="onClick(param)">
+        {{ text }}
+</button>

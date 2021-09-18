@@ -1,0 +1,45 @@
+.accordeon__row__contents {
+  width: 90%;
+  margin: 10px auto 20px auto;
+}
+
+.accordeon__row {
+  width: 90%;
+  margin: 0 auto 20px auto;
+  border: 2px solid #aaaaaa;
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.accordeon__row__title {
+  border-bottom: 2px solid #aaaaaa;
+  padding: 8px 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.accordeon__row .item-list > .item {
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.accordeon__row .item-list > .item.borderer {
+  border: 1px solid #aaaaaa;
+}
+
+.accordeon__row .item-list > .item > .item-info {
+  width: calc(100% - 250px);
+}
+
+.accordeon__row .item-list > .item > .item-info > .item__name {
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 3px 0;
+}
+
+.accordeon__row .item-list > .item > .item-info > .item__characteristics {
+  margin: 0 0 5px 5px;
+}

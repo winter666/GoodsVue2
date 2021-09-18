@@ -1,0 +1,23 @@
+<div class="accordeon">
+    <AccordeonRow v-for="item in data" :title="item.name" :key="item.id">
+      <div class="item-list accordeon__row__contents" v-if="item.goods.length">
+        <div class="item borderer" v-for="good in item.goods">
+          <div class="item-info">
+            <div class="item__name">{{ good.name }}</div>
+            <div class="item__characteristics">
+                <div class="price">Цена: {{ parsePrice(good.price) }}</div>
+                <div class="total">Осталось (кол-во): {{ good.total }}</div>
+            </div>
+          </div>
+          <div class="item-actions">
+              <div>
+                <CustomBtn :text="'Добавить в корзину'" :btnClass="'green'" :type="'button'" :emitMethodName="'add'" @add="test" :clickParams="{id: good.id}"/>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div v-else>
+        Товары пока что нет
+      </div>
+    </AccordeonRow>
+</div>

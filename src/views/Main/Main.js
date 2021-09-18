@@ -1,28 +1,18 @@
-import api_requests from '@/store/api_requests'
+import api_requests from '@/store/api_requests';
+import Accordeon from '@/components/Acordeon/AccordeonList/Accordeon.vue';
 
 export default {
   name: "Main",
+  components: { Accordeon },
   data() {
     return {
       currencyFormat: 75,
-      goodGroups: [],
+      data: [],
       goodsData: [],
       goodsNames: {}
     }
   },
   methods: {
-
-    toCurrency(price) {
-        return new Intl.NumberFormat('ru-RU', {
-            currency: 'rub',
-            style: 'currency'
-        }).format(price)
-    },
-
-    priceFormat(nominal) {
-        let price = nominal * this.currencyFormat;
-        return this.toCurrency(price);
-    },
 
     exstractData(res) {
       if (res.data.Value) {
@@ -47,22 +37,22 @@ export default {
               }
 
               // Далее смотрю - существует ли такая группа товаров в глобавльном массиве
-              let gIndx = this.goodGroups.findIndex(group => group.id == item.G );
+              let gIndx = this.data.findIndex(group => group.id == item.G );
               if (gIndx === -1) {
                  // Если нет - создаю и записываю туда товар
-                  this.goodGroups.push({
+                  this.data.push({
                     id: item.G,
                     name: this.goodsNames[item.G].G,
                     goods: [good]
                   });
               } else {
                 // если есть - добавляю туда товар
-                this.goodGroups[gIndx].goods.push(good);
+                this.data[gIndx].goods.push(good);
               }
           }
 
       });
-      console.log( this.goodGroups);
+      console.log( this.data);
     }
 
   },
