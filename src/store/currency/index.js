@@ -1,4 +1,5 @@
 export default {
+    currencyCoeff: 75,
 
     toCurrency(price) {
         return new Intl.NumberFormat('ru-RU', {
@@ -8,7 +9,7 @@ export default {
     },
 
     priceFormat(nominal) {
-        let price = nominal * 75;
+        let price = nominal * this.currencyCoeff;
         return this.toCurrency(price);
     },
 }
