@@ -1,0 +1,22 @@
+.flash {
+  position: fixed;
+  bottom: 20px;
+  left: -350px;
+  width: 300px;
+}
+
+.show {
+  animation: flash ease-in-out 2s;
+}
+
+@keyframes flash {
+  20% {
+    left: 20px;
+  }
+  60% {
+    left: 20px;
+  }
+  100% {
+    left: -350px;
+  }
+}

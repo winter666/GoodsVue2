@@ -1,9 +1,10 @@
 import api_requests from '@/store/api_requests';
 import Accordeon from '@/components/Acordeon/AccordeonList/Accordeon.vue';
+import Flash from '@/components/Flash/Flash.vue';
 
 export default {
   name: "Main",
-  components: { Accordeon },
+  components: { Accordeon, Flash },
   data() {
     return {
       currencyFormat: 75,
