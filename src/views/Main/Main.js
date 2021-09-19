@@ -8,9 +8,6 @@ export default {
   components: { Accordeon, Flash, Cart },
   data() {
     return {
-      data: [],
-      goodsData: [],
-      goodsNames: {},
       addedToCartEvt: false,
       cartFlashMsg: '',
       cartFlashType: '',
