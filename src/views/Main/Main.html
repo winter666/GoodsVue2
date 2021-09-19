@@ -4,6 +4,7 @@
     <!-- Сначала хотел сделать аккордеон, но в процессе чего-то передумал..)) -->
     <!-- P.S.: Компоненты не стал переименновывать -->
     <Accordeon :data="data" @callFlashCart="callFlash"/>
+    <Cart v-if="cart.length" :cart_items="cart" :cart_fixed="true"/>
   </div>
   <Flash :type="'success'" :text="'Добавлено в корзину!'" :call="addedToCartEvt"/>
 </div>

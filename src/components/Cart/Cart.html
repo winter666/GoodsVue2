@@ -1,8 +1,34 @@
-<div id="cart">
-    <div class="conatiner">
-        <h3>Корзина</h3>
-        <div class="cart">
+<div class="card-wrapper">
+    <div id="cart" :class="{fixed: cart_fixed}">
+        <div class="cart__title">Корзина</div>
+        <div class="cart__items">
 
+            <div v-for="cart_item in cart_items" class="item">
+              <div class="item__product">
+                <div class="name">{{ cart_item.product.name }}</div>
+              </div>
+              <div class="item__price">
+                <div class="count">
+                  <div class="decr" @click="decr(cart_item.product.id)">
+                      -
+                  </div>
+                  <div class="current">
+                      {{ cart_item.count }}
+                  </div>
+                  <!-- TODO: Если убрать :class то все отрабатывает ка надо(( -->
+                  <div :class="{disabled: (cart_item.count == cart_item.product.total)}"
+                        class="incr" @click="incr(cart_item.product.id)">
+                      +
+                  </div>
+                </div>
+                <div class="price">{{ parsePrice(cart_item.product.price * cart_item.count) }}</div>
+              </div>
+            </div>
+        </div>
+        <div class="cart__total">
+            <div class="total">
+              Итого: {{ totalPrice }}
+            </div>
         </div>
     </div>
 </div>

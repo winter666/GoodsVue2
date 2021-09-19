@@ -1,10 +1,11 @@
 import api_requests from '@/store/api_requests';
 import Accordeon from '@/components/Acordeon/AccordeonList/Accordeon.vue';
 import Flash from '@/components/Flash/Flash.vue';
+import Cart from '@/components/Cart/Cart.vue';
 
 export default {
   name: "Main",
-  components: { Accordeon, Flash },
+  components: { Accordeon, Flash, Cart },
   data() {
     return {
       currencyFormat: 75,
@@ -12,6 +13,7 @@ export default {
       goodsData: [],
       goodsNames: {},
       addedToCartEvt: false,
+      cart: []
     }
   },
   methods: {
@@ -35,6 +37,16 @@ export default {
         }
       });
       console.log(product);
+      let cartItemIdx = this.cart.findIndex(item => item.product.id === product.id);
+      if (cartItemIdx !== -1) {
+        this.cart[cartItemIdx].count++
+      } else  {
+        this.cart.push({
+          count: 1,
+          product
+        });
+        console.log(this.cart);
+      }
     },
 
     exstractData(res) {
