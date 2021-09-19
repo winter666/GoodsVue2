@@ -40,6 +40,13 @@ export default {
           this.addProductToCart(product);
       }
       return result;
+    },
+
+    requestEveryFiveSec() {
+      setInterval( () => {
+        this.requestGetProducts();
+        // update cart (method in store)
+      }, 5 * 1000);
     }
 
   },
@@ -48,5 +55,6 @@ export default {
   },
   created() {
     this.requestGetProducts();
+    this.requestEveryFiveSec();
   }
 }

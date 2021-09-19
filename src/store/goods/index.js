@@ -1,4 +1,5 @@
 import api_requests from '@/store/api_requests';
+import currency from '@/store/currency';
 
 export default {
   state: {
@@ -54,6 +55,7 @@ export default {
               }
 
           });
+          currency.setCurrencyCoeffRand();
           ctx.commit('SET_PRODUCTS', data);
       }).catch((e) => {
           console.log('Ошибка при загрузке данных');

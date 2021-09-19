@@ -12,4 +12,12 @@ export default {
         let price = nominal * this.currencyCoeff;
         return this.toCurrency(price);
     },
+
+    setCurrencyCoeff(coeff) {
+      this.currencyCoeff = coeff;
+    },
+
+    setCurrencyCoeffRand() {
+        this.currencyCoeff = Math.floor(Math.random() * 80);
+    }
 }
