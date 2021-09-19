@@ -13,7 +13,32 @@
   left: 0;
 }
 
-#cart.fixed > .cart__items {
+#cart.fixed.hide {
+  transition: 0.3;
+  left: -100%;
+}
+
+#cart.fixed.hide .cart__head .cart-controller {
+  display: block;
+  position: fixed;
+  left: 20px;
+  bottom: 75px;
+  background-color: darkgreen;
+  padding: 10px;
+}
+
+#cart.fixed .cart__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#cart.fixed .cart-controller {
+  cursor: pointer;
+
+}
+
+#cart.fixed  .cart__items {
   max-height: 200px;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -24,7 +49,7 @@
   flex-direction: column;
 }
 
-#cart.fixed > .cart__items > .item {
+#cart.fixed .cart__items > .item {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -34,40 +59,48 @@
   border-bottom: 2px solid #3f3f3f;
 }
 
-#cart.fixed > .cart__items > .item > .item__product {
-  width: calc(100% - 200px);
+#cart.fixed .cart__items > .item > .item__product {
+  width: calc(100% - 300px);
 }
 
-#cart.fixed > .cart__items > .item > .item__product .name {
+#cart.fixed .cart__items > .item > .item__product .name {
   font-weight: 500;
   font-size: 1rem;
 }
-#cart.fixed > .cart__items > .item > .item__price,
-#cart.fixed > .cart__items > .item > .item__price > .count {
+#cart.fixed .cart__items > .item > .item__price,
+#cart.fixed .cart__items > .item > .item__price > .count {
   display: flex;
   flex-direction: row;
 }
 
-#cart.fixed > .cart__items > .item > .item__price {
-  width: 200px;
+#cart.fixed .cart__items > .item > .item__price {
+  width: 300px;
   justify-content: space-between;
 }
 
-#cart.fixed > .cart__items > .item > .item__price .decr,
-#cart.fixed > .cart__items > .item > .item__price .incr {
+#cart.fixed .cart__items > .item > .item__price > .count > .current,
+#cart.fixed .cart__items > .item > .item__price .decr,
+#cart.fixed .cart__items > .item > .item__price .incr,
+#cart.fixed .cart__items > .item > .item__price .price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#cart.fixed .cart__items > .item > .item__price .decr,
+#cart.fixed .cart__items > .item > .item__price .incr {
   cursor: pointer;
-  display: inline-block;
   padding: 3px 5px;
   width: 30px;
-  text-align: center;
   border: 1px solid #3f3f3f;
 }
-#cart.fixed > .cart__items > .item > .item__price .incr.disabled {
+
+#cart.fixed .cart__items > .item > .item__price .incr.disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
 
 
-#cart.fixed > .cart__items > .item > .item__price > .count > .current{
+#cart.fixed .cart__items > .item > .item__price > .count > .current {
   margin: 0 10px;
 }

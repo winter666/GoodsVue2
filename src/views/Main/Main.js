@@ -2,6 +2,7 @@ import api_requests from '@/store/api_requests';
 import Accordeon from '@/components/Acordeon/AccordeonList/Accordeon.vue';
 import Flash from '@/components/Flash/Flash.vue';
 import Cart from '@/components/Cart/Cart.vue';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: "Main",
@@ -13,13 +14,16 @@ export default {
       goodsData: [],
       goodsNames: {},
       addedToCartEvt: false,
-      cart: []
+      cartFlashMsg: '',
+      cartFlashType: '',
     }
   },
   methods: {
+    ...mapActions(['addProductToCart']),
 
     callFlash(payload) {
-      // Добавление товара в корзину
+      this.cartFlashMsg = 'Добавлено в корзину!';
+      this.cartFlashType = 'success';
       this.addToCart(payload.id);
 
       this.addedToCartEvt = true;
@@ -29,24 +33,18 @@ export default {
     },
 
     addToCart(product_id) {
-      let product = {}
+      let product = {};
+      let result = true;
       this.data.forEach(goodsGroup => {
         let gIdx = goodsGroup.goods.findIndex(good => good.id == product_id);
         if (gIdx !== -1) {
           product = goodsGroup.goods[gIdx];
         }
       });
-      console.log(product);
-      let cartItemIdx = this.cart.findIndex(item => item.product.id === product.id);
-      if (cartItemIdx !== -1) {
-        this.cart[cartItemIdx].count++
-      } else  {
-        this.cart.push({
-          count: 1,
-          product
-        });
-        console.log(this.cart);
+      if (product) {
+          this.addProductToCart(product);
       }
+      return result;
     },
 
     exstractData(res) {
@@ -89,6 +87,9 @@ export default {
       });
     }
 
+  },
+  computed: {
+      ...mapGetters(['getCartItems']),
   },
   created() {
     // Получаю данные очередью промисов через Promise.all()

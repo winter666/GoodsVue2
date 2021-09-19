@@ -16,3 +16,9 @@ div.alert.danger {
   background-color: #ff0000;
   color: #ffffff;
 }
+
+div.alert.info {
+  border-color: #ffffff;
+  background-color: #a9a9a9;
+  color: #ffffff
+}

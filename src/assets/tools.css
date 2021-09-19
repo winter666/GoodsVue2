@@ -9,3 +9,16 @@
   width: 80%;
   margin: 0 auto;
 }
+
+.icn {
+  width: 50px;
+  height: 50px;
+}
+
+.icn-cart {
+  background: url('./cart.svg');
+}
+
+.icn-arrow-left {
+  background: url('./arrow-left.svg');
+}

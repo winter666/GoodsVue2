@@ -1,63 +1,48 @@
 import currency from "@/store/currency";
+import CustomBtn from '@/components/CustomBtn/CustomBtn.vue';
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: 'Cart',
+  components: { CustomBtn },
   props: {
     cart_items: Array,
     cart_fixed: Boolean
   },
   data() {
     return {
-      goods: []
+      hide_cart: false
     }
   },
   methods: {
+    ...mapActions(['deleteProductFromCart', 'increaseProductCount', 'decreaseProductCount']),
 
-    delete() {
-      // TODO: Удаление из корзины
+    deleteFromCart(payload) {
+        this.delete(payload.id);
     },
 
-    update() {
-      // TODO: Добавление новых товаров, увеличение кол-ва
+    delete(product_id) {
+        this.deleteProductFromCart(product_id);
     },
 
     decr(product_id) {
-      let item = this.findItemById(product_id);
-      if (item.count > 1) {
-        item.count--
-      } else {
-        const idx = this.cart_items.findIndex(item => item.product.id == product_id);
-        this.cart_items.splice(idx, 1);
-      }
+        this.decreaseProductCount(product_id);
     },
 
     incr(product_id) {
-      let item = this.findItemById(product_id);
-      if (item) {
-        if (item.count < item.product.total) {
-          item.count++
-        }
-      }
-    },
-
-    findItemById(id) {
-      const idx = this.cart_items.findIndex(item => item.product.id == id);
-      return this.cart_items[idx];
+        this.increaseProductCount(product_id);
     },
 
     parsePrice(price) {
-      return currency.priceFormat(price);
+        return currency.priceFormat(price);
+    },
+
+    toggleShowCart() {
+        this.hide_cart = !this.hide_cart;
     }
 
   },
   computed: {
-    totalPrice() {
-      // Рассчет цены всех товаров
-      let totalPrice = 0;
-      this.cart_items.forEach(item => {
-        totalPrice += item.count * item.product.price;
-      });
-      return this.parsePrice(totalPrice);
-    }
+    ...mapGetters(['getCartItems', 'getTotalPriceInCart'])
   }
 }
