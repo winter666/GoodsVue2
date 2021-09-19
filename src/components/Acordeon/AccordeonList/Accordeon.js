@@ -16,7 +16,7 @@ export default {
         return currency.priceFormat(price);
       },
       addToCart(payload) {
-        this.$emit('callFlashCart');
+        this.$emit('callFlashCart', payload);
       }
   },
   created() {

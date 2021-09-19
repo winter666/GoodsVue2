@@ -16,11 +16,25 @@ export default {
   },
   methods: {
 
-    callFlash() {
+    callFlash(payload) {
+      // Добавление товара в корзину
+      this.addToCart(payload.id);
+
       this.addedToCartEvt = true;
       setTimeout(() => {
         this.addedToCartEvt = false;
       }, 4 * 1000);
+    },
+
+    addToCart(product_id) {
+      let product = {}
+      this.data.forEach(goodsGroup => {
+        let gIdx = goodsGroup.goods.findIndex(good => good.id == product_id);
+        if (gIdx !== -1) {
+          product = goodsGroup.goods[gIdx];
+        }
+      });
+      console.log(product);
     },
 
     exstractData(res) {
