@@ -3,7 +3,7 @@ import Alert from '@/components/Alert/Alert.vue';
 export default {
   name: "Flash",
   props: {
-    call: String,
+    call: Boolean,
     text: String,
     type: String,
   },
@@ -22,7 +22,9 @@ export default {
   methods: {
 
   },
-  created() {
-
+  computed: {
+    start() {
+      return this.call;
+    }
   }
 }

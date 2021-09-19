@@ -10,10 +10,18 @@ export default {
       currencyFormat: 75,
       data: [],
       goodsData: [],
-      goodsNames: {}
+      goodsNames: {},
+      addedToCartEvt: false,
     }
   },
   methods: {
+
+    callFlash() {
+      this.addedToCartEvt = true;
+      setTimeout(() => {
+        this.addedToCartEvt = false;
+      }, 4 * 1000);
+    },
 
     exstractData(res) {
       if (res.data.Value) {
@@ -53,7 +61,6 @@ export default {
           }
 
       });
-      console.log( this.data);
     }
 
   },
@@ -67,7 +74,7 @@ export default {
       // Преобразую данные
       this.formatData();
     }).catch((e) => {
-      console.log('ошибка');
+      console.log('Ошибка при загрузке данных');
     })
   }
 }

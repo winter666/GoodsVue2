@@ -1,4 +1,5 @@
 <div class="accordeon">
+  <div v-if="data.length">
     <AccordeonRow v-for="item in data" :title="item.name" :key="item.id">
       <div class="item-list accordeon__row__contents" v-if="item.goods.length">
         <div class="item borderer" v-for="good in item.goods">
@@ -11,7 +12,7 @@
           </div>
           <div class="item-actions">
               <div>
-                <CustomBtn :text="'Добавить в корзину'" :btnClass="'green'" :type="'button'" :emitMethodName="'add'" @add="test" :clickParams="{id: good.id}"/>
+                <CustomBtn :text="'Добавить в корзину'" :btnClass="'green'" :type="'button'" :emitMethodName="'add'" @add="addToCart" :clickParams="{id: good.id}"/>
               </div>
           </div>
         </div>
@@ -20,4 +21,8 @@
         Товары пока что нет
       </div>
     </AccordeonRow>
+  </div>
+  <div v-else>
+    Товары отсутствуют
+  </div>
 </div>

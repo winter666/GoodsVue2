@@ -15,8 +15,8 @@ export default {
       parsePrice(price) {
         return currency.priceFormat(price);
       },
-      test(payload) {
-        console.log(payload);
+      addToCart(payload) {
+        this.$emit('callFlashCart');
       }
   },
   created() {

@@ -3,7 +3,7 @@
     <h3>Товары</h3>
     <!-- Сначала хотел сделать аккордеон, но в процессе чего-то передумал..)) -->
     <!-- P.S.: Компоненты не стал переименновывать -->
-    <Accordeon :data="data" />
+    <Accordeon :data="data" @callFlashCart="callFlash"/>
   </div>
-  <Flash :type="'success'" :text="'Добавлено в корзину!'"/>
+  <Flash :type="'success'" :text="'Добавлено в корзину!'" :call="addedToCartEvt"/>
 </div>
