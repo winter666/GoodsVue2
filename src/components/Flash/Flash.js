@@ -6,6 +6,7 @@ export default {
     call: Boolean,
     text: String,
     type: String,
+    h_position: String
   },
   components: { Alert },
   data() {
@@ -16,7 +17,9 @@ export default {
         'danger',
         'info',
       ],
-      startAnimate: false
+      startAnimate: false,
+      posTop: 'top',
+      posBottom: 'bottom'
     }
   },
   methods: {
@@ -25,6 +28,9 @@ export default {
   computed: {
     start() {
       return this.call;
+    },
+    getHPosition() {
+      return (this.h_position) ? this.h_position : this.posTop;
     }
   }
 }
