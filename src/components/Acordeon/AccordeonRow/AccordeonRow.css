@@ -43,3 +43,18 @@
 .accordeon__row .item-list > .item > .item-info > .item__characteristics {
   margin: 0 0 5px 5px;
 }
+
+@media(max-width: 600px) {
+  .accordeon__row .item-list > .item {
+    flex-direction: column;
+  }
+
+  .accordeon__row .item-list > .item > .item-info {
+    width: 100%;
+  }
+
+  .accordeon__row .item-list > .item > .item-info,
+  .accordeon__row .item-list > .item > .item-actions {
+    margin-bottom: 10px;
+  }
+}

@@ -18,7 +18,7 @@ button.custom-btn.btn-green {
 }
 
 button.custom-btn.btn-green:active {
-  box-shadow: #808080 0px 0px 5px;
+  box-shadow: rgb(0, 119, 0) 0px 0px 5px;
 }
 
 button.custom-btn.btn-red {
