@@ -1,6 +1,7 @@
 import AccordeonRow from '../AccordeonRow/AccordeonRow.vue';
 import CustomBtn from '@/components/CustomBtn/CustomBtn.vue';
 import currency from '@/store/currency';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'Accordeon',
@@ -18,6 +19,9 @@ export default {
       addToCart(payload) {
         this.$emit('callFlashCart', payload);
       }
+  },
+  computed: {
+    ...mapGetters(['getCoeff', 'isIncrease', 'isDecrease'])
   },
   created() {
 

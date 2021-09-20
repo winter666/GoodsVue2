@@ -44,6 +44,15 @@
   margin: 0 0 5px 5px;
 }
 
+.accordeon__row .item-list > .item > .item-info > .item__characteristics .price.over {
+  color: #ff0000;
+}
+
+.accordeon__row .item-list > .item > .item-info > .item__characteristics .price.optimal {
+  color: #008000;
+}
+
+
 @media(max-width: 600px) {
   .accordeon__row .item-list > .item {
     flex-direction: column;

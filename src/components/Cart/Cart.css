@@ -104,3 +104,21 @@
 #cart.fixed .cart__items > .item > .item__price > .count > .current {
   margin: 0 10px;
 }
+
+#cart .cart__total {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 0;
+}
+
+#cart .optimal {
+  color: #008000;
+}
+
+#cart .over {
+  color: #ff0000;
+}
+
+#cart .cart__total .total.optimal {
+  color: #fff;
+}

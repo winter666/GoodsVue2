@@ -25,7 +25,7 @@
                       +
                   </div>
                 </div>
-                <div class="price">{{ parsePrice(cart_item.product.price * cart_item.count) }}</div>
+                <div class="price" :class="{optimal: isDecrease, over: isIncrease}">{{ parsePrice((cart_item.product.price * cart_item.count) * getCoeff) }}</div>
                 <div class="remove-item">
                     <CustomBtn :text="'Удалить'"
                                :type="'button'"
@@ -37,8 +37,8 @@
             </div>
         </div>
         <div class="cart__total">
-            <div class="total">
-              Итого: {{ parsePrice(getTotalPriceInCart) }}
+            <div class="total" :class="{optimal: isDecrease, over: isIncrease}">
+              Итого: {{ parsePrice(getTotalPriceInCart * getCoeff) }}
             </div>
         </div>
     </div>

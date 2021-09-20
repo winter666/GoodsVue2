@@ -7,7 +7,7 @@ export default {
   components: { CustomBtn },
   props: {
     cart_items: Array,
-    cart_fixed: Boolean
+    cart_fixed: Boolean,
   },
   data() {
     return {
@@ -43,6 +43,6 @@ export default {
 
   },
   computed: {
-    ...mapGetters(['getCartItems', 'getTotalPriceInCart'])
+    ...mapGetters(['getCartItems', 'getTotalPriceInCart', 'getCoeff', 'isIncrease', 'isDecrease'])
   }
 }

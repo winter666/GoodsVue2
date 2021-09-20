@@ -6,7 +6,7 @@
           <div class="item-info">
             <div class="item__name">{{ good.name }}</div>
             <div class="item__characteristics">
-                <div class="price">Цена: {{ parsePrice(good.price) }}</div>
+                <div class="price" :class="{optimal: isDecrease, over: isIncrease}">Цена: {{ parsePrice(good.price * getCoeff) }}</div>
                 <div class="total">Осталось (кол-во): {{ good.total }}</div>
             </div>
           </div>

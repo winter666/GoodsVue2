@@ -1,5 +1,4 @@
 export default {
-    currencyCoeff: 75,
 
     toCurrency(price) {
         return new Intl.NumberFormat('ru-RU', {
@@ -9,15 +8,6 @@ export default {
     },
 
     priceFormat(nominal) {
-        let price = nominal * this.currencyCoeff;
-        return this.toCurrency(price);
-    },
-
-    setCurrencyCoeff(coeff) {
-      this.currencyCoeff = coeff;
-    },
-
-    setCurrencyCoeffRand() {
-        this.currencyCoeff = Math.floor(Math.random() * 80);
+        return this.toCurrency(nominal);
     }
 }
