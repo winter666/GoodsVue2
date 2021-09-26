@@ -56,6 +56,6 @@ export default {
   },
   created() {
     this.requestGetProducts();
-    this.requestEveryFiveSec();
+    // this.requestEveryFiveSec();
   }
 }

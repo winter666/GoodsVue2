@@ -1,8 +1,12 @@
 <div class="accordeon__row accordeon__row__contents">
-    <div class="accordeon__row__title">
-        {{ title }}
+    <div class="accordeon__row__title" @click="toggleAccorderon">
+        <div>{{ title }}</div>
+        <div class="arrow-4" :class="{'open': !isHide}">
+          <span class="arrow-4-left"></span>
+          <span class="arrow-4-right"></span>
+        </div>
     </div>
-    <div class="accordeon__row__body open">
-      <slot></slot>
+    <div class="accordeon__row__body" :ref="'current_body'" :style="{'max-height': maxHeight + 'px'}">
+        <slot></slot>
     </div>
 </div>
